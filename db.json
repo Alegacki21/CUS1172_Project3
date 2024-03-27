@@ -1,89 +1,97 @@
-
 {
-    "quizzes": [
+  "quizzes": [
+    {
+      "id": 1,
+      "name": "JavaScript Quiz",
+      "questions": [
         {
-            "id": 1,
-            "name": "JavaScript Quiz",
-            "questions": [
-                {
-                    "id": 1,
-                    "type": "text",
-                    "question": "What keyword is used to declare a function in JavaScript?",
-                    "correctAnswer": "function"
-                },
-                {
-                    "id": 2,
-                    "type": "image",
-                    "question": "Which image represents the JavaScript logo?",
-                    "options": ["https://i.imgur.com/ikMHv5v.png", 
-                    "https://imgur.com/7UELy80",
-                     "https://i.imgur.com/R03OhHH.png", 
-                     "https://i.imgur.com/DYHlhuZ.png"],
-                    "correctAnswer": "https://i.imgur.com/DYHlhuZ.png"
-                },
-                {
-                    "id": 3,
-                    "type": "multipleChoice",
-                    "question": "Which of the following is not a correct way to initialize a variable in JavaScript?",
-                    "options": ["int x = 1", "let x = 'Hello'", "const x = 3.14", "var x = 1"],
-                    "correctAnswer": "int x = 1'"
-                },
-                {
-                    "id": 4,
-                    "type": "multipleChoice",
-                    "question": "JavaScript is one of three languages all web developers must learn. What are the other two?",
-                    "options": ["Java", "HTML and Pyhton", "Spanish", "HTML and CSS"],
-                    "correctAnswer": "HTML and CSS"
-                },
-                {
-                    "id": 5,
-                    "type": "text",
-                    "question": "how many ways can you create a function in JavaScript?",
-                    "correctAnswer": "3"
-                }
-            ]
+          "id": 1,
+          "type": "text",
+          "question": "What keyword is used to declare a function in JavaScript?",
+          "correctAnswer": "function"
         },
         {
-            "id": 2,
-            "name": "Java Quiz",
-            "questions": [
-                {
-                    "id": 1,
-                    "type": "multipleChoice",
-                    "question": "Which of the following is not Java data type?",
-                    "options": ["number", "char", "string", "float"],
-                    "correctAnswer": "number"
-                },
-                {
-                    "id": 2,
-                    "type": "text",
-                    "question": "What keyword is used to declare a number variable in Java?",
-                    "correctAnswer": "int"
-                },
-                {
-                    "id": 3,
-                    "type": "image",
-                    "question": "Which image represents the Java logo?",
-                    "options": ["https://i.imgur.com/9KBcsuo.png", 
-                    "https://i.imgur.com/cNToGUh.png", 
-                    "https://i.imgur.com/AvkTZa0.jpeg", 
-                    "https://i.imgur.com/1WOUYVY.png"],
-                    "correctAnswer": "https://i.imgur.com/cNToGUh.png"
-                },
-                {
-                    "id": 4,
-                    "type": "multipleChoice",
-                    "question": "When was Java created?",
-                    "options": ["1996", "1972", "1991", "1995"],
-                    "correctAnswer": "1995"
-                },
-                {
-                    "id": 5,
-                    "type": "text",
-                    "question": "what is the keyword used to create a class in Java?",
-                    "correctAnswer": "class"
-                }
-            ]
+          "id": 2,
+          "type": "image",
+          "question": "Which image represents the JavaScript logo?",
+          "options": [
+            "https://i.imgur.com/ikMHv5v.png",
+            "https://imgur.com/7UELy80",
+            "https://i.imgur.com/R03OhHH.png",
+            "https://i.imgur.com/DYHlhuZ.png"
+          ],
+          "correctAnswer": "https://i.imgur.com/DYHlhuZ.png"
+        },
+        {
+          "id": 3,
+          "type": "multipleChoice",
+          "question": "Which of the following is not a correct way to initialize a variable in JavaScript?",
+          "options": [
+            "int x = 1",
+            "let x = 'Hello'",
+            "const x = 3.14",
+            "var x = 1"
+          ],
+          "correctAnswer": "int x = 1'"
+        },
+        {
+          "id": 4,
+          "type": "multipleChoice",
+          "question": "JavaScript is one of three languages all web developers must learn. What are the other two?",
+          "options": ["Java", "HTML and Pyhton", "Spanish", "HTML and CSS"],
+          "correctAnswer": "HTML and CSS"
+        },
+        {
+          "id": 5,
+          "type": "text",
+          "question": "how many ways can you create a function in JavaScript?",
+          "correctAnswer": "3"
         }
-    ]
+      ]
+    },
+    {
+      "id": 2,
+      "name": "Java Quiz",
+      "questions": [
+        {
+          "id": 1,
+          "type": "multipleChoice",
+          "question": "Which of the following is not Java data type?",
+          "options": ["number", "char", "string", "float"],
+          "correctAnswer": "number"
+        },
+        {
+          "id": 2,
+          "type": "text",
+          "question": "What keyword is used to declare a number variable in Java?",
+          "correctAnswer": "int"
+        },
+        {
+          "id": 3,
+          "type": "image",
+          "question": "Which image represents the Java logo?",
+          "options": [
+            "https://i.imgur.com/9KBcsuo.png",
+            "https://i.imgur.com/cNToGUh.png",
+            "https://i.imgur.com/AvkTZa0.jpeg",
+            "https://i.imgur.com/1WOUYVY.png"
+          ],
+          "correctAnswer": "https://i.imgur.com/cNToGUh.png"
+        },
+        {
+          "id": 4,
+          "type": "multipleChoice",
+          "question": "When was Java created?",
+          "options": ["1996", "1972", "1991", "1995"],
+          "correctAnswer": "1995"
+        },
+        {
+          "id": 5,
+          "type": "text",
+          "question": "what is the keyword used to create a class in Java?",
+          "correctAnswer": "class"
+        }
+      ]
+    }
+  ]
 }
