@@ -23,10 +23,10 @@
           "type": "image",
           "question": "Which image represents the JavaScript logo?",
           "options": [
-            "https://www.dropbox.com/scl/fi/rnzoo0t6id5zvqt1ehecn/logo-javascript-png-html-code-allows-to-embed-javascript-logo-in-your-website-587.png?rlkey=ynjbmfa8izq8xxp71h41kbdsa&dl=0",
-            "https://www.dropbox.com/scl/fi/js2moo6ou9qaeazlc3563/CSS3_logo.svg.png?rlkey=vokl3aco7xz6bv05y78xu6yut&dl=0",
-            "https://www.dropbox.com/scl/fi/4b6xonz18lf9mivmpneg7/kisspng-computer-icons-html5-scalable-vector-graphics-port-socialpack-chocolate-icon-5c4b3bbcb7d671.680718971548434364753.jpg?rlkey=goeh6ntkjztp8dnmmc3fh9scq&dl=0",
-            "https://www.dropbox.com/scl/fi/t8bakmcnzgtq8b5fr2ipn/McDonald-s_square_2020.svg.png?rlkey=iscjaep2ck7z8z59bvzj47nkp&dl=0"
+            "https://github.com/Alegacki21/CUS1172_Project3/blob/main/CSS3_logo.svg.png?raw=true",
+            "https://github.com/Alegacki21/CUS1172_Project3/blob/main/kisspng-computer-icons-html5-scalable-vector-graphics-port-socialpack-chocolate-icon-5c4b3bbcb7d671.680718971548434364753.jpg?raw=true",
+            "https://github.com/Alegacki21/CUS1172_Project3/blob/main/logo-javascript-png-html-code-allows-to-embed-javascript-logo-in-your-website-587.png?raw=true",
+            "https://github.com/Alegacki21/CUS1172_Project3/blob/main/McDonald's_square_2020.svg.png?raw=true"
           ],
           "correctAnswer": "https://www.dropbox.com/scl/fi/rnzoo0t6id5zvqt1ehecn/logo-javascript-png-html-code-allows-to-embed-javascript-logo-in-your-website-587.png?rlkey=ynjbmfa8izq8xxp71h41kbdsa&dl=0"
         },
@@ -79,12 +79,12 @@
           "type": "image",
           "question": "Which image represents the Java logo?",
           "options": [
-            "https://www.dropbox.com/scl/fi/772qdfoa2q9snfon6wm00/2dcJ0Unw_400x400.png?rlkey=ekwy2br9a001duq55tzt2u31f&dl=0",
-            "https://www.dropbox.com/scl/fi/plcdlatjfie7rpkwjsiuu/795ebb5f4a470cd7242136237f61fc53.png?rlkey=m4ffv1oyvhvm4ee6a70epgaun&dl=0",
-            "https://www.dropbox.com/scl/fi/goel5fmiigniw4xdcmf8y/BenefitsOfCoffee_600x450.jpg?rlkey=x4yz9y92e7gtcmwdaoamoyz8x&dl=0",
-            "https://www.dropbox.com/scl/fi/f6i5812m8e61o4mk552b9/Python-logo-notext.svg.png?rlkey=p6l1v62eer1cwo9lb29ellsl2&dl=0"
+            "https://raw.githubusercontent.com/Alegacki21/CUS1172_Project3/main/2dcJ0Unw_400x400.png",
+            "https://github.com/Alegacki21/CUS1172_Project3/blob/main/795ebb5f4a470cd7242136237f61fc53.png?raw=true",
+            "https://github.com/Alegacki21/CUS1172_Project3/blob/main/BenefitsOfCoffee_600x450.jpg?raw=true",
+            "https://github.com/Alegacki21/CUS1172_Project3/blob/main/Python-logo-notext.svg.png?raw=true"
           ],
-          "correctAnswer": "https://www.dropbox.com/scl/fi/plcdlatjfie7rpkwjsiuu/795ebb5f4a470cd7242136237f61fc53.png?rlkey=m4ffv1oyvhvm4ee6a70epgaun&dl=0"
+          "correctAnswer": "https://github.com/Alegacki21/CUS1172_Project3/blob/main/795ebb5f4a470cd7242136237f61fc53.png?raw=true"
         },
         {
           "id": 9,
