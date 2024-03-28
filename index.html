@@ -42,42 +42,51 @@
           </form>
         </div>
       </script>
-      
-      <script id="quiz-template" type="text/x-handlebars-template">
-        <form id="quizForm">
-          <h2>{{currentQuestion.question}}</h2>
-          {{#ifEquals currentQuestion.type 'multipleChoice'}}
-            {{#each currentQuestion.options}}
-              <input type="radio" name="answer" value="{{this}}"> {{this}}<br>
-            {{/each}}
-          {{else}}
-            {{#ifEquals currentQuestion.type 'text'}}
-              <input type="text" name="answer">
-            {{else}}
-              {{#ifEquals currentQuestion.type 'image'}}
-                {{#each currentQuestion.options}}
-                  <input type="radio" name="answer" value="{{this}}"> <img src="{{this}}" alt="Option image"><br>
-                {{/each}}
-              {{/ifEquals}}
-            {{/ifEquals}}
-          {{/ifEquals}}
-          <button type="submit">Submit</button>
-        </form>
-      </script>
 
-      <script id="feedback-template" type="text/x-handlebars-template">
-  <h2>{{feedbackTitle}}</h2>
-  <p>{{feedbackMessage}}</p>
-  <button id="nextQuestion">Next Question</button>
+      <script id="quiz-template" type="text/x-handlebars-template">
+    <form id="quizForm" class="p-3">
+        <h2 class="mb-3">{{currentQuestion.question}}</h2>
+        {{#ifEquals currentQuestion.type 'multipleChoice'}}
+            <div class="form-check">
+                {{#each currentQuestion.options}}
+                    <input class="form-check-input" type="radio" name="answer" value="{{this}}" id="{{this}}">
+                    <label class="form-check-label" for="{{this}}">{{this}}</label><br>
+                {{/each}}
+            </div>
+        {{else}}
+            {{#ifEquals currentQuestion.type 'text'}}
+                <input type="text" name="answer" class="form-control">
+            {{else}}
+                {{#ifEquals currentQuestion.type 'image'}}
+                    <div class="form-check">
+                        {{#each currentQuestion.options}}
+                            <input class="form-check-input" type="radio" name="answer" value="{{this}}" id="{{this}}">
+                            <label class="form-check-label" for="{{this}}">
+                                <img src="{{this}}" alt="Option image" class="img-thumbnail">
+                            </label><br>
+                        {{/each}}
+                    </div>
+                {{/ifEquals}}
+            {{/ifEquals}}
+        {{/ifEquals}}
+        <button type="submit" class="btn btn-primary mt-3">Submit</button>
+    </form>
 </script>
 
-     
-<script id="result-template" type="text/x-handlebars-template">
-    <h2>Quiz Results</h2>
-    <p>Thank you for taking the quiz, {{name}}!</p>
-    <p>Your score: {{score}} out of {{total}}</p>
-    <button id="restartQuiz">Take Again</button>
+<script id="feedback-template" type="text/x-handlebars-template">
+    <h2>{{feedbackTitle}}</h2>
+    <p>{{feedbackMessage}}</p>
+    <button id="nextQuestion">Next Question</button>
   </script>
 
+     
+  <script id="result-template" type="text/x-handlebars-template">
+    <div class="p-3">
+        <h2 class="mb-3">Quiz Results</h2>
+        <p class="mb-3">Thank you for taking the quiz, {{name}}!</p>
+        <p class="mb-3">Your score: {{score}} out of {{total}}</p>
+        <button id="restartQuiz" class="btn btn-primary">Take Again</button>
+    </div>
+</script>
   </body>
 </html>
