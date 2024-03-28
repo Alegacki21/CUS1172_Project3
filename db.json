@@ -51,7 +51,7 @@
           "options": ["Java", "HTML and Pyhton", "Spanish", "HTML and CSS"],
           "correctAnswer": "HTML and CSS"
         },
-        {
+        { 
           "id": 5,
           "quizId": 1,
           "type": "text",

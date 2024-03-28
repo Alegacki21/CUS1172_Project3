@@ -159,3 +159,4 @@ function handleRetakeQuiz() {
       render();
     });
 }
+ 
