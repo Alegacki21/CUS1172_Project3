@@ -17,7 +17,7 @@
           "question": "What keyword is used to declare a function in JavaScript?",
           "correctAnswer": "function"
         },
-        {
+        { 
           "id": 2,
           "quizId": 1,
           "type": "image",
