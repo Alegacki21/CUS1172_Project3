@@ -1,105 +1,105 @@
 {
-    "quizzes": [
-        {
-          "id": 1,
-          "name": "JavaScript Quiz"
-        },
-        {
-          "id": 2,
-          "name": "Java Quiz"
-        }
-      ],
-      "questions": [
-        {
-          "id": 1,
-          "quizId": 1,
-          "type": "text",
-          "question": "What keyword is used to declare a function in JavaScript?",
-          "correctAnswer": "function"
-        },
-        { 
-          "id": 2,
-          "quizId": 1,
-          "type": "image",
-          "question": "Which image represents the JavaScript logo?",
-          "options": [
-            "https://github.com/Alegacki21/CUS1172_Project3/blob/main/CSS3_logo.svg.png?raw=true",
-            "https://github.com/Alegacki21/CUS1172_Project3/blob/main/kisspng-computer-icons-html5-scalable-vector-graphics-port-socialpack-chocolate-icon-5c4b3bbcb7d671.680718971548434364753.jpg?raw=true",
-            "https://github.com/Alegacki21/CUS1172_Project3/blob/main/logo-javascript-png-html-code-allows-to-embed-javascript-logo-in-your-website-587.png?raw=true",
-            "https://github.com/Alegacki21/CUS1172_Project3/blob/main/McDonald's_square_2020.svg.png?raw=true"
-          ],
-          "correctAnswer": "https://www.dropbox.com/scl/fi/rnzoo0t6id5zvqt1ehecn/logo-javascript-png-html-code-allows-to-embed-javascript-logo-in-your-website-587.png?rlkey=ynjbmfa8izq8xxp71h41kbdsa&dl=0"
-        },
-        {
-          "id": 3,
-          "quizId": 1,
-          "type": "multipleChoice",
-          "question": "Which of the following is not a correct way to initialize a variable in JavaScript?",
-          "options": [
-            "int x = 1",
-            "let x = 'Hello'",
-            "const x = 3.14",
-            "var x = 1"
-          ],
-          "correctAnswer": "int x = 1'"
-        },
-        {
-          "id": 4,
-          "quizId": 1,
-          "type": "multipleChoice",
-          "question": "JavaScript is one of three languages all web developers must learn. What are the other two?",
-          "options": ["Java", "HTML and Pyhton", "Spanish", "HTML and CSS"],
-          "correctAnswer": "HTML and CSS"
-        },
-        { 
-          "id": 5,
-          "quizId": 1,
-          "type": "text",
-          "question": "how many ways can you create a function in JavaScript?",
-          "correctAnswer": "3"
-        },
-        {
-            "id": 6,
-            "quizId": 2,
-            "type": "multipleChoice",
-            "question": "Which of the following is not Java data type?",
-            "options": ["number", "char", "string", "float"],
-            "correctAnswer": "number"
-          },
-          {
-            "id": 7,
-            "quizId": 2,
-            "type": "text",
-            "question": "What keyword is used to declare a number variable in Java?",
-            "correctAnswer": "int"
-          },
-        {
-          "id": 8,
-          "quizId": 2,
-          "type": "image",
-          "question": "Which image represents the Java logo?",
-          "options": [
-            "https://raw.githubusercontent.com/Alegacki21/CUS1172_Project3/main/2dcJ0Unw_400x400.png",
-            "https://github.com/Alegacki21/CUS1172_Project3/blob/main/795ebb5f4a470cd7242136237f61fc53.png?raw=true",
-            "https://github.com/Alegacki21/CUS1172_Project3/blob/main/BenefitsOfCoffee_600x450.jpg?raw=true",
-            "https://github.com/Alegacki21/CUS1172_Project3/blob/main/Python-logo-notext.svg.png?raw=true"
-          ],
-          "correctAnswer": "https://github.com/Alegacki21/CUS1172_Project3/blob/main/795ebb5f4a470cd7242136237f61fc53.png?raw=true"
-        },
-        {
-          "id": 9,
-          "quizId": 2,
-          "type": "multipleChoice",
-          "question": "When was Java created?",
-          "options": ["1996", "1972", "1991", "1995"],
-          "correctAnswer": "1995"
-        },
-        { 
-          "id": 10,
-          "quizId": 2,
-          "type": "text",
-          "question": "what is the keyword used to create a class in Java?",
-          "correctAnswer": "class"
-        }
-      ]
+  "quizzes": [
+    {
+      "id": 1,
+      "name": "JavaScript Quiz"
+    },
+    {
+      "id": 2,
+      "name": "Java Quiz"
     }
+  ],
+  "questions": [
+    {
+      "id": 1,
+      "quizId": 1,
+      "type": "text",
+      "question": "What keyword is used to declare a function in JavaScript?",
+      "correctAnswer": "function"
+    },
+    {
+      "id": 2,
+      "quizId": 1,
+      "type": "image",
+      "question": "Which image represents the JavaScript logo?",
+      "options": [
+        "https://github.com/Alegacki21/CUS1172_Project3/blob/main/CSS3_logo.svg.png?raw=true",
+        "https://github.com/Alegacki21/CUS1172_Project3/blob/main/kisspng-computer-icons-html5-scalable-vector-graphics-port-socialpack-chocolate-icon-5c4b3bbcb7d671.680718971548434364753.jpg?raw=true",
+        "https://github.com/Alegacki21/CUS1172_Project3/blob/main/logo-javascript-png-html-code-allows-to-embed-javascript-logo-in-your-website-587.png?raw=true",
+        "https://github.com/Alegacki21/CUS1172_Project3/blob/main/McDonald's_square_2020.svg.png?raw=true"
+      ],
+      "correctAnswer": "https://github.com/Alegacki21/CUS1172_Project3/blob/main/logo-javascript-png-html-code-allows-to-embed-javascript-logo-in-your-website-587.png?raw=true"
+    },
+    {
+      "id": 3,
+      "quizId": 1,
+      "type": "multipleChoice",
+      "question": "Which of the following is not a correct way to initialize a variable in JavaScript?",
+      "options": [
+        "int x = 1",
+        "let x = 'Hello'",
+        "const x = 3.14",
+        "var x = 1"
+      ],
+      "correctAnswer": "int x = 1"
+    },
+    {
+      "id": 4,
+      "quizId": 1,
+      "type": "multipleChoice",
+      "question": "JavaScript is one of three languages all web developers must learn. What are the other two?",
+      "options": ["Java", "HTML and Pyhton", "Spanish", "HTML and CSS"],
+      "correctAnswer": "HTML and CSS"
+    },
+    {
+      "id": 5,
+      "quizId": 1,
+      "type": "text",
+      "question": "how many ways can you create a function in JavaScript?",
+      "correctAnswer": "3"
+    },
+    {
+      "id": 6,
+      "quizId": 2,
+      "type": "multipleChoice",
+      "question": "Which of the following is not Java data type?",
+      "options": ["number", "char", "string", "float"],
+      "correctAnswer": "number"
+    },
+    {
+      "id": 7,
+      "quizId": 2,
+      "type": "text",
+      "question": "What keyword is used to declare a number variable in Java?",
+      "correctAnswer": "int"
+    },
+    {
+      "id": 8,
+      "quizId": 2,
+      "type": "image",
+      "question": "Which image represents the Java logo?",
+      "options": [
+        "https://raw.githubusercontent.com/Alegacki21/CUS1172_Project3/main/2dcJ0Unw_400x400.png",
+        "https://github.com/Alegacki21/CUS1172_Project3/blob/main/795ebb5f4a470cd7242136237f61fc53.png?raw=true",
+        "https://github.com/Alegacki21/CUS1172_Project3/blob/main/BenefitsOfCoffee_600x450.jpg?raw=true",
+        "https://github.com/Alegacki21/CUS1172_Project3/blob/main/Python-logo-notext.svg.png?raw=true"
+      ],
+      "correctAnswer": "https://github.com/Alegacki21/CUS1172_Project3/blob/main/795ebb5f4a470cd7242136237f61fc53.png?raw=true"
+    },
+    {
+      "id": 9,
+      "quizId": 2,
+      "type": "multipleChoice",
+      "question": "When was Java created?",
+      "options": ["1996", "1972", "1991", "1995"],
+      "correctAnswer": "1995"
+    },
+    {
+      "id": 10,
+      "quizId": 2,
+      "type": "text",
+      "question": "what is the keyword used to create a class in Java?",
+      "correctAnswer": "class"
+    }
+  ]
+}

@@ -4,6 +4,7 @@ let state = {
   quiz: null,
   score: 0,
   questionIndex: 0,
+  total: 0,
   quizzes: [
     { id: 1, name: "Quiz 1" },
     { id: 2, name: "Quiz 2" },
@@ -49,6 +50,7 @@ function render() {
               quiz.name ===
               selectElement.options[selectElement.selectedIndex].value
           );
+          state.name = document.getElementById("nameInput").value;
           state.page = "quiz";
           render();
         });
@@ -67,6 +69,7 @@ function render() {
           const quizQuestions = questions.filter(
             (question) => question.quizId === state.quiz.id
           );
+          state.quiz.questions = quizQuestions; 
           state.currentQuestion = quizQuestions[state.questionIndex];
           app.innerHTML = quizTemplate(state);
           document
@@ -77,34 +80,71 @@ function render() {
           console.log("Fetch failed:", error);
         });
       break;
+
     case "feedback":
       app.innerHTML = feedbackTemplate(state);
-      document
-        .getElementById("nextQuestion")
-        .addEventListener("click", handleNextQuestion);
+      new Promise((resolve) => setTimeout(resolve, 3000)).then(() => {
+        if (state.questionIndex >= state.quiz.questions.length - 1) {
+          state.page = "result";
+          state.total = state.quiz.questions.length;
+          state.resultMessage =
+            state.score / state.total >= 0.8
+              ? "Congratulations! You passed the quiz."
+              : "Sorry, you failed the quiz.";
+        } else {
+          state.page = "quiz";
+        }
+        render();
+      });
       break;
-    case "end":
-      const percentage = (state.score / 5) * 100;
-      if (percentage > 80) {
-        state.resultMessage = `Congratulations ${state.name}! You pass the quiz.`;
-      } else {
-        state.resultMessage = `Sorry ${state.name}, you fail the quiz.`;
-      }
-      app.innerHTML = resultTemplate(state);
+
+    case "result":
+      state.total = state.quiz.questions.length;
+      state.percentage = (state.score / state.total) * 100;
+      state.resultMessage =
+        state.percentage >= 80
+          ? "Congratulations! You passed the quiz."
+          : "Sorry, you failed the quiz.";
+
+      const source = document.getElementById("result-template").innerHTML;
+
+      const template = Handlebars.compile(source);
+
+      const resultHTML = template({
+        name: state.name,
+        score: state.score,
+        total: state.total,
+        percentage: state.percentage,
+        resultMessage: state.resultMessage,
+      });
+
+      document.getElementById("app").innerHTML = resultHTML;
+
       document
-        .getElementById("retakeQuiz")
-        .addEventListener("click", handleRetakeQuiz);
-      document
-        .getElementById("mainPage")
-        .addEventListener("click", handleMainPage);
+        .getElementById("restartQuiz")
+        .addEventListener("click", function () {
+          state.page = "quiz";
+          state.questionIndex = 0;
+          state.score = 0;
+          state.currentQuestion = state.quiz.questions[state.questionIndex];
+          render();
+        });
+      document.getElementById("goHome").addEventListener("click", function () {
+        state.page = "start";
+        state.quiz = null;
+        state.questionIndex = 0;
+        state.score = 0;
+        state.currentQuestion = null;
+        render();
+      });
+
       break;
   }
 }
-
 function handleMainPage() {
   state.page = "start";
   render();
-} 
+}
 
 function handleQuiz(event) {
   event.preventDefault();
@@ -123,27 +163,36 @@ function handleQuiz(event) {
   } else {
     state.feedbackMessage = `Sorry, the correct answer is ${state.currentQuestion.correctAnswer}.`;
   }
+  const percentage = (state.score / 5) * 100;
+  if (percentage > 80) {
+    state.resultMessage = `Congratulations ${state.name}! You pass the quiz.`;
+  } else {
+    state.resultMessage = `Sorry ${state.name}, you fail the quiz.`;
+  }
   state.page = "feedback";
   render();
-  handleNextQuestion();
+  setTimeout(function () {
+    state.page = "quiz";
+    handleNextQuestion();
+    render();
+  }, 3000);
 }
 
 function handleNextQuestion() {
   state.questionIndex++;
-  if (state.questionIndex < 5) {
-    fetch(
-      `https://my-json-server.typicode.com/Alegacki21/CUS1172_Project3/questions`
-    )
-      .then((response) => response.json())
-      .then((question) => {
-        state.currentQuestion = question;
-        state.page = "quiz";
-        render();
-      });
+  if (state.questionIndex < state.quiz.questions.length) {
+    state.currentQuestion = state.quiz.questions[state.questionIndex];
+    state.page = "quiz";
   } else {
-    state.page = "end";
-    render();
+    state.page = "result";
+    state.total = state.quiz.questions.length;
+    state.percentage = (state.score / state.total) * 100;
+    state.resultMessage =
+      state.percentage >= 80
+        ? "Congratulations! You passed the quiz."
+        : "Sorry, you failed the quiz.";
   }
+  render();
 }
 
 function handleRetakeQuiz() {
@@ -154,9 +203,11 @@ function handleRetakeQuiz() {
     `https://my-json-server.typicode.com/Alegacki21/CUS1172_Project3/questions`
   )
     .then((response) => response.json())
-    .then((question) => {
-      state.currentQuestion = question;
+    .then((questions) => {
+      const quizQuestions = questions.filter(
+        (question) => question.quizId === state.quiz.id
+      );
+      state.currentQuestion = quizQuestions[state.questionIndex];
       render();
     });
 }
- 
