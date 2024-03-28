@@ -104,7 +104,7 @@ function render() {
 function handleMainPage() {
   state.page = "start";
   render();
-}
+} 
 
 function handleQuiz(event) {
   event.preventDefault();

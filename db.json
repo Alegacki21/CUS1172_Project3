@@ -94,7 +94,7 @@
           "options": ["1996", "1972", "1991", "1995"],
           "correctAnswer": "1995"
         },
-        {
+        { 
           "id": 10,
           "quizId": 2,
           "type": "text",
