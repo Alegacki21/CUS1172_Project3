@@ -57,24 +57,25 @@ function render() {
         }, 0);
         break;
       case "quiz":
-        fetch(`https://my-json-server.typicode.com/Alegacki21/CUS1172_Project3/quizzes/${state.quiz.id}/questions/${state.questionIndex}`)
-          .then((response) => {
-            if (!response.ok) {
-              throw new Error(`HTTP error! status: ${response.status}`);
-            }
-            return response.json();
-          })
-          .then((question) => {
-            state.currentQuestion = question;
-            app.innerHTML = quizTemplate(state);
-            setTimeout(function() {
-              const quizForm = document.getElementById("quizForm");
-              quizForm.addEventListener("submit", handleQuiz);
-            }, 0);
-          })
-          .catch((error) => {
-            console.log('Fetch failed:', error);
-          });
+        fetch(`https://my-json-server.typicode.com/Alegacki21/CUS1172_Project3/questions`)
+  .then((response) => {
+    if (!response.ok) {
+      throw new Error(`HTTP error! status: ${response.status}`);
+    }
+    return response.json();
+  })
+  .then((questions) => {
+    const quizQuestions = questions.filter(question => question.quizId === state.quiz.id);
+    state.currentQuestion = quizQuestions[state.questionIndex];
+    app.innerHTML = quizTemplate(state);
+    setTimeout(function() {
+      const quizForm = document.getElementById("quizForm");
+      quizForm.addEventListener("submit", handleQuiz);
+    }, 0);
+  })
+  .catch((error) => {
+    console.log('Fetch failed:', error);
+  });
         break;
     case "feedback":
       app.innerHTML = feedbackTemplate(state);
