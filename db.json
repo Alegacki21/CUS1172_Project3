@@ -1,17 +1,27 @@
 {
-  "quizzes": [
-    {
-      "id": 1,
-      "name": "JavaScript Quiz",
+    "quizzes": [
+        {
+          "id": 1,
+          "name": "JavaScript Quiz",
+          "questions": [1, 2, 3, 4, 5]
+        },
+        {
+          "id": 2,
+          "name": "Java Quiz",
+          "questions": [6, 7, 8, 9, 10]
+        }
+      ],
       "questions": [
         {
           "id": 1,
+          "quizId": 1,
           "type": "text",
           "question": "What keyword is used to declare a function in JavaScript?",
           "correctAnswer": "function"
         },
         {
           "id": 2,
+          "quizId": 1,
           "type": "image",
           "question": "Which image represents the JavaScript logo?",
           "options": [
@@ -24,6 +34,7 @@
         },
         {
           "id": 3,
+          "quizId": 1,
           "type": "multipleChoice",
           "question": "Which of the following is not a correct way to initialize a variable in JavaScript?",
           "options": [
@@ -36,6 +47,7 @@
         },
         {
           "id": 4,
+          "quizId": 1,
           "type": "multipleChoice",
           "question": "JavaScript is one of three languages all web developers must learn. What are the other two?",
           "options": ["Java", "HTML and Pyhton", "Spanish", "HTML and CSS"],
@@ -43,31 +55,29 @@
         },
         {
           "id": 5,
+          "quizId": 1,
           "type": "text",
           "question": "how many ways can you create a function in JavaScript?",
           "correctAnswer": "3"
-        }
-      ]
-    },
-    {
-      "id": 2,
-      "name": "Java Quiz",
-      "questions": [
-        {
-          "id": 1,
-          "type": "multipleChoice",
-          "question": "Which of the following is not Java data type?",
-          "options": ["number", "char", "string", "float"],
-          "correctAnswer": "number"
         },
         {
-          "id": 2,
-          "type": "text",
-          "question": "What keyword is used to declare a number variable in Java?",
-          "correctAnswer": "int"
-        },
+            "id": 6,
+            "quizId": 2,
+            "type": "multipleChoice",
+            "question": "Which of the following is not Java data type?",
+            "options": ["number", "char", "string", "float"],
+            "correctAnswer": "number"
+          },
+          {
+            "id": 7,
+            "quizId": 2,
+            "type": "text",
+            "question": "What keyword is used to declare a number variable in Java?",
+            "correctAnswer": "int"
+          },
         {
-          "id": 3,
+          "id": 8,
+          "quizId": 2,
           "type": "image",
           "question": "Which image represents the Java logo?",
           "options": [
@@ -79,19 +89,19 @@
           "correctAnswer": "https://i.imgur.com/cNToGUh.png"
         },
         {
-          "id": 4,
+          "id": 9,
+          "quizId": 2,
           "type": "multipleChoice",
           "question": "When was Java created?",
           "options": ["1996", "1972", "1991", "1995"],
           "correctAnswer": "1995"
         },
         {
-          "id": 5,
+          "id": 10,
+          "quizId": 2,
           "type": "text",
           "question": "what is the keyword used to create a class in Java?",
           "correctAnswer": "class"
         }
       ]
     }
-  ]
-}

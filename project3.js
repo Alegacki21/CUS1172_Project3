@@ -4,36 +4,78 @@ let state = {
   quiz: null,
   score: 0,
   questionIndex: 0,
+  quizzes: [],
 };
 
-const startTemplate = Handlebars.compile(
-  document.getElementById("start-template").innerHTML
-);
-const quizTemplate = Handlebars.compile(
-  document.getElementById("quiz-template").innerHTML
-);
-const feedbackTemplate = Handlebars.compile(
-  document.getElementById("feedback-template").innerHTML
-);
-const resultTemplate = Handlebars.compile(
-  document.getElementById("result-template").innerHTML
-);
+let app;
+let startTemplate, quizTemplate, feedbackTemplate, resultTemplate;
+  
+document.addEventListener('DOMContentLoaded', function() {
+    app = document.getElementById('app');
+    state.quizzes = [
+        { id: 1, name: 'Quiz 1' },
+        { id: 2, name: 'Quiz 2' },
+    ];
+  
+    startTemplate = Handlebars.compile(
+            document.getElementById("start-template").innerHTML
+        );
+    quizTemplate = Handlebars.compile(
+        document.getElementById("quiz-template").innerHTML
+    );
+    
+    feedbackTemplate = Handlebars.compile(
+        document.getElementById("feedback-template").innerHTML
+    );
+    resultTemplate = Handlebars.compile(
+        document.getElementById("result-template").innerHTML
+    );
+    render();
 
+      const startForm = document.getElementById("startForm");
+      const quizForm = document.getElementById("quizForm");
+    
+      startForm.addEventListener("submit", startQuiz);
+      quizForm.addEventListener("submit", handleQuiz);
+      
+});
+      
 function render() {
-  switch (state.page) {
-    case "start":
-      app.innerHTML = startTemplate(state);
-      break;
-    case "quiz":
-      fetch(
-        `https://my-json-server.typicode.com/Alegacki21/CUS1172_Project3/quizzes/${state.quiz}/questions/${state.questionIndex}`
-      )
-        .then((response) => response.json())
-        .then((question) => {
-          state.currentQuestion = question;
-          app.innerHTML = quizTemplate(state);
-        });
-      break;
+    switch (state.page) {
+      case "start":
+        app.innerHTML = startTemplate(state);
+        setTimeout(function() {
+          const startForm = document.getElementById("startForm");
+          startForm.addEventListener("submit", startQuiz);
+          document.getElementById('start-quiz-button').addEventListener('click', function(event) {
+            event.preventDefault();
+            let selectElement = document.getElementById("quizSelect");
+            state.quiz = state.quizzes.find(quiz => quiz.name === selectElement.options[selectElement.selectedIndex].value);
+            state.page = 'quiz';
+            render();
+          });
+        }, 0);
+        break;
+      case "quiz":
+        fetch(`https://my-json-server.typicode.com/Alegacki21/CUS1172_Project3/quizzes/${state.quiz.id}/questions/${state.questionIndex}`)
+          .then((response) => {
+            if (!response.ok) {
+              throw new Error(`HTTP error! status: ${response.status}`);
+            }
+            return response.json();
+          })
+          .then((question) => {
+            state.currentQuestion = question;
+            app.innerHTML = quizTemplate(state);
+            setTimeout(function() {
+              const quizForm = document.getElementById("quizForm");
+              quizForm.addEventListener("submit", handleQuiz);
+            }, 0);
+          })
+          .catch((error) => {
+            console.log('Fetch failed:', error);
+          });
+        break;
     case "feedback":
       app.innerHTML = feedbackTemplate(state);
       document
@@ -57,6 +99,12 @@ function render() {
       break;
   }
 }
+
+function handleMainPage() {
+    state.page = "start";
+    render();
+    
+  }
 
 function startQuiz(event) {
   event.preventDefault();
@@ -112,14 +160,6 @@ function handleQuiz(event) {
   }, 1000);
 }
 
-function startQuiz(event) {
-  event.preventDefault();
-  state.name = document.getElementById("nameInput").value;
-  state.quiz = document.getElementById("quizSelect").value;
-  document.getElementById("startingPage").style.display = "none";
-  state.page = "quiz";
-  render();
-}
 
 function handleNextQuestion() {
   state.questionIndex++;
@@ -153,17 +193,5 @@ function handleRetakeQuiz() {
     });
 }
 
-function handleMainPage() {
-  state.page = "start";
-  render();
-}
 
-document.addEventListener("DOMContentLoaded", function () {
-  const startForm = document.getElementById("startForm");
-  const quizForm = document.getElementById("quizForm");
 
-  startForm.addEventListener("submit", startQuiz);
-  quizForm.addEventListener("submit", handleQuiz);
-});
-
-render();

@@ -1,67 +1,83 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
+
+<head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Quiz Project</title>
 
-    <link
-      rel="stylesheet"
-      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
-    />
-    <link rel="stylesheet" href="styles.css" />
-    <script src="project3.js"></script>
-
-    <link
-      rel="stylesheet"
-      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
-    />
-    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.7.7/handlebars.min.js"></script>
-  </head>
-  <body>
-    <div id="startingPage" class="container">
-      <h1>Welcome!</h1>
-      <h4>Ready to start the Quiz?</h4>
-      <form id="startForm">
-        <div class="form-group">
-          <label for="nameInput">Enter your name:</label>
-          <input type="text" id="nameInput" class="form-control" required />
+    <script src="project3.js"></script>
+</head>
+
+<body>
+
+    <div id="app"></div>
+
+    <div id="quizPage" class="container"></div>
+
+    <div id="feedbackPage" class="container"></div>
+
+    <div id="resultPage" class="container"></div>
+
+    <script id="start-template" type="text/x-handlebars-template">
+        <div id="startingPage" class="container">
+          <h1>Welcome!</h1>
+          <h4>Ready to start the Quiz?</h4>
+          <form id="startForm">
+            <div class="form-group">
+              <label for="nameInput">Enter your name:</label>
+              <input type="text" id="nameInput" class="form-control" value="{{name}}" required />
+            </div>
+            <div class="form-group">
+              <label for="quizSelect">Select a quiz:</label>
+              <select id="quizSelect" class="form-control" required>
+                <option value="" disabled selected>Select Quiz</option>
+                <option value="Quiz 1">Javascript Quiz</option>
+                <option value="Quiz 2">Java Quiz</option>
+              </select>
+            </div>
+            <button type="submit" class="btn btn-primary" id="start-quiz-button">Start Quiz</button>
+          </form>
         </div>
-        <div class="form-group">
-          <label for="quizSelect">Select a quiz:</label>
-          <select id="quizSelect" class="form-control" required>
-            <option value="" disabled selected>Select Quiz</option>
-            <option value="quiz1">Quiz 1</option>
-            <option value="quiz2">Quiz 2</option>
-          </select>
-        </div>
-        <button type="submit" class="btn btn-primary">Start Quiz</button>
-      </form>
-    </div>
-
-    <div id="quizPage" class="container" style="display: none"></div>
-
-    <div id="feedbackPage" class="container" style="display: none"></div>
-
-    <div id="resultPage" class="container" style="display: none"></div>
-
-    <script id="quiz-template" type="text/x-handlebars-template">
-      <form id="quizForm">
+      </script>
+      
+      <script id="quiz-template" type="text/x-handlebars-template">
+        <form id="quizForm">
           <h2>{{currentQuestion.question}}</h2>
-          {{#if currentQuestion.type === 'multipleChoice'}}
-              {{#each currentQuestion.options}}
-                  <input type="radio" name="answer" value="{{this}}"> {{this}}<br>
-              {{/each}}
-          {{else if currentQuestion.type === 'text'}}
+          {{#ifEquals currentQuestion.type 'multipleChoice'}}
+            {{#each currentQuestion.options}}
+              <input type="radio" name="answer" value="{{this}}"> {{this}}<br>
+            {{/each}}
+          {{else}}
+            {{#ifEquals currentQuestion.type 'text'}}
               <input type="text" name="answer">
-          {{else if currentQuestion.type === 'image'}}
-              {{#each currentQuestion.options}}
+            {{else}}
+              {{#ifEquals currentQuestion.type 'image'}}
+                {{#each currentQuestion.options}}
                   <input type="radio" name="answer" value="{{this}}"> <img src="{{this}}" alt="Option image"><br>
-              {{/each}}
-          {{/if}}
+                {{/each}}
+              {{/ifEquals}}
+            {{/ifEquals}}
+          {{/ifEquals}}
           <button type="submit">Submit</button>
-      </form>
-    </script>
+        </form>
+      </script>
+
+      <script id="feedback-template" type="text/x-handlebars-template">
+  <h2>{{feedbackTitle}}</h2>
+  <p>{{feedbackMessage}}</p>
+  <button id="nextQuestion">Next Question</button>
+</script>
+
+     
+<script id="result-template" type="text/x-handlebars-template">
+    <h2>Quiz Results</h2>
+    <p>Thank you for taking the quiz, {{name}}!</p>
+    <p>Your score: {{score}} out of {{total}}</p>
+    <button id="restartQuiz">Take Again</button>
+  </script>
+
   </body>
 </html>
